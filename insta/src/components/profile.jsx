@@ -10,7 +10,7 @@ const Profile = () => {
 	if (localStorage.getItem('token') == null) {
 		history('/');
 	}
-	document.body.style.backgroundColor='white';
+	document.body.style.backgroundColor = 'white';
 	var moment = require('moment');
 	require("moment/min/locales.min");
 	moment.locale('ru');
@@ -45,7 +45,7 @@ const Profile = () => {
 		);
 		if (post != null) {
 			console.log('posts', post)
-			if (post.status == 200) {
+			if (post.data.status == 200) {
 				console.log('posts', post.data.logins);
 				setItems(post.data.logins);
 				setCounterpublic(post.data.logins);
@@ -249,7 +249,7 @@ const Profile = () => {
 					</div>
 					<div class="col-12 mt-5">
 						<div className="row ml-5">
-							{items ?
+							{items!= null ?
 								<>
 									{items.map((item) =>
 										<div className="col-4 "
@@ -260,7 +260,7 @@ const Profile = () => {
 														<i class="fa-solid fa-trash"></i>
 													</button> */}
 												</div>
-												<div className="col-2"><Link to={"/publicchange/" + item.post_id+ "/" + item.photo} className="btn btn-white form-control form-control-lg font-weight-bold"><i class="fa-solid fa-pencil"></i></Link></div>
+												<div className="col-2"><Link to={"/publicchange/" + item.post_id + "/" + item.photo} className="btn btn-white form-control form-control-lg font-weight-bold"><i class="fa-solid fa-pencil"></i></Link></div>
 											</div>
 											<div className="row ml-4" >
 												<Link to={"/showpost/" + item.post_id} class="btn">
@@ -275,28 +275,11 @@ const Profile = () => {
 											<p><b>{item.location}</b></p>
 											<p><small>{moment(item.data).calendar()
 											}</small></p>
-											{/* <div className="col-12">
-												<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-													<div class="modal-dialog">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title" id="exampleModalLabel">Удалить пост</h5>
-																<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-															</div>
-															<div class="modal-body">
-																Вы действительно хотите удалить данную публикацию?
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-																<button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => pdelete(item.post_id, item.photo)}>Удалить</button>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div> */}
 										</div>
 									)}
-								</> : <></>
+								</> : <>
+								<div class="spinner1"></div>
+								</>
 							}
 
 						</div>

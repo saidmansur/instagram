@@ -171,7 +171,7 @@ const Userprofile = () => {
 		const param = {
 			'users_id': localStorage.getItem('token'),
 			'follower_id': userId,
-			'followername': firstname,
+			'firstname': firstname,
 			'avatar': avatar
 		}
 		console.log('params', param);

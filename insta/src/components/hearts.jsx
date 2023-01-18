@@ -146,15 +146,15 @@ const Hearts = () => {
 	return (
 		<div>
 			<Dnavbar />
-			<div class="row">
+			<div class="row mt-2">
 				{follows!= null ?
 					<>
 						{follows.map((item) =>
 							<div class="col-12">
 								<div className="row">
 									<div className="col-10">
-										<img alt="" class="rounded-circle border border-danger float-left" src={item.avatar} width="60" height="60" />
-										<b class="float-left mt-3 ml-2 font-weight-bolder">{item.followername}</b>
+										<img alt="" class="rounded-circle border border-danger float-left" src={api + "/registrations/uploads/" + item.avatar} width="60" height="60" />
+										<b class="float-left mt-3 ml-2 font-weight-bolder">{item.firstname}</b>
 									</div>
 									<div className="col-2">
 									{checkFollows( item.follower_id) ?
