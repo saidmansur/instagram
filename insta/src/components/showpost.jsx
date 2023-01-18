@@ -7,6 +7,7 @@ const Showpost=()=>{
     if (localStorage.getItem('token') == null) {
       history ("/");
     }
+	document.body.style.backgroundColor='white';
     // const [items1, setItems1] = useState();
     const [photo, setPhoto] = useState();
     const param = useParams();

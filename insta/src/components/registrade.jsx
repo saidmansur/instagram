@@ -9,6 +9,7 @@ const Registrade = () => {
     if (localStorage.getItem('token') != null) {
         history('/lenta');
     }
+    document.body.style.backgroundColor='white';
     const [login, setLogin] = useState();
     const [firstname, setFirstname] = useState();
     const [lastname, setLastname] = useState();

@@ -5,6 +5,7 @@ const Insidesmain = () => {
   if (localStorage.getItem('token') == null) {
     history ('/');
   }
+  document.body.style.backgroundColor='white';
   return (
     <div class="row">
       <div class="col-12 mt-2 ">

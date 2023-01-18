@@ -5,12 +5,13 @@ const Promotion = () => {
     if (localStorage.getItem('token') == null) {
         history ('/');
     }
+    document.body.style.backgroundColor='white';
     return (
         <div class="row">
             <div class="col-12 mt-2">
                 <div className="row">
                     <div className="col-1">
-                        <Link class="btn btn-white form-control" to="profile">
+                        <Link class="btn btn-white form-control" to="/profile">
                             <i class="fas fa-chevron-left fa-2x float-left mt-1 d-flex justify-content-start"></i></Link>
                     </div>
                     <div className="col-11">

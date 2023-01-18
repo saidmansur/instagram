@@ -8,6 +8,7 @@ const Change = () => {
   if (localStorage.getItem('token') == null) {
     history ( '/');
   }
+  document.body.style.backgroundColor='white';
   const [avatar, setAvatar] = useState([]);
   const [login, setLogin] = useState();
   const [firstname, setFirstname] = useState();

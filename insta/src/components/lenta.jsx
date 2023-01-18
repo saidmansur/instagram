@@ -39,6 +39,7 @@ const Lenta = () => {
   if (localStorage.getItem('token') == null) {
     history("/");
   }
+  document.body.style.backgroundColor='white';
   console.log('local', localStorage.getItem('token'));
   const [firstname, setFirstame] = useState();
   const [avatar, setAvatar] = useState();
@@ -316,7 +317,7 @@ const Lenta = () => {
                   <div className="col-11">
                     <Link to={"/userprofile/" + i.userid} className="btn">
                       <img class="rounded-circle border border-danger float-left" src={api + "/registrations/uploads/" + i.avatar} width="60" height="60" />
-                      <b class="float-left mt-3 ml-2 font-weight-bolder">{i.followername}</b>
+                      <b class="float-left mt-3 ml-2 font-weight-bolder">{i.firstname}</b>
                     </Link>
                   </div>
                   <div className="col-1">

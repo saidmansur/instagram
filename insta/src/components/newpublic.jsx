@@ -9,6 +9,7 @@ const Newpublic = () => {
   if (localStorage.getItem('token') == null) {
     history("/");
   }
+  document.body.style.backgroundColor='white';
   const [photo, setPhoto] = useState([]);
   const [comment, setComment] = useState();
   const [location, setLocation] = useState();

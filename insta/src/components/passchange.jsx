@@ -8,6 +8,7 @@ const Passchange = () => {
   if (localStorage.getItem('token') == null) {
     history ('/');
   }
+  document.body.style.backgroundColor='white';
   const [login, setLogin] = useState();
   const [newpass, setNewpass] = useState();
   const [pass, setPass] = useState();

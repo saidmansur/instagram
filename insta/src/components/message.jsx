@@ -7,6 +7,7 @@ const Message = () => {
     if (localStorage.getItem('token') == null) {
         history("/");
     }
+    document.body.style.backgroundColor='white';
     const [login, setLogin] = useState();
     const [firstname, setFirstame] = useState();
     const [avatar, setAvatar] = useState();

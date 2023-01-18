@@ -9,6 +9,7 @@ const Search = () => {
   if (localStorage.getItem('token') == null) {
     history('/');
   }
+  document.body.style.backgroundColor='red';
   const [login, setLogin] = useState();
   const [firstname, setFirstame] = useState();
   const [avatar, setAvatar] = useState();
@@ -52,14 +53,14 @@ const Search = () => {
         <div class="form-group col-12">
           <input class="input fixed-top ml-5" required type="text" placeholder="Поиск" onChange={(e) => { setLogin(e.target.value) }} onInput={search} />
         </div>
-        <div class="row" id="main">
+        <div class="row mt-5 mr-1" id="main">
           {items ?
             <>
               {items.map((i) =>
                 <div class="col-12">
                   <div className="row">
                     <div className="col-11">
-                      <Link to={"/userprofile/" + i.id} className="btn fixed-top mt-3">
+                      <Link to={"/userprofile/" + i.id} className="mt-5">
                         <img class="rounded-circle border border-danger float-left" src={api + "/registrations/uploads/" + i.avatar} width="60" height="60" />
                         <b class="float-left mt-3 ml-2 font-weight-bolder">{i.firstname}</b>
                       </Link>

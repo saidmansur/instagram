@@ -8,7 +8,7 @@ const Hearts = () => {
 	if (localStorage.getItem('token') == null) {
 		history('/');
 	}
-
+	document.body.style.backgroundColor='white';
 	const [firstname, setFollowername] = useState();
 	const [avatar, setAvatar] = useState();
 	const [items1, setItems1] = useState();

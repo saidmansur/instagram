@@ -13,6 +13,7 @@ const Smain = () => {
     localStorage.removeItem('token');
     history({ pathname: '/' })
   }
+  document.body.style.backgroundColor='white';
   return (
     <div class="row">
       <div class="col-12">

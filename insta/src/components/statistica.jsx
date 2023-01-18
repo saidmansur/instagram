@@ -5,6 +5,7 @@ const Statistica = () => {
   if (localStorage.getItem('token') == null) {
     history('/');
   }
+  document.body.style.backgroundColor='white';
   return (
 
     <div class="row">

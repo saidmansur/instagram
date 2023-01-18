@@ -8,7 +8,7 @@ const Enter = () => {
     if (localStorage.getItem('token') != null) {
         history('/lenta');
     }
-
+    document.body.style.backgroundColor='white';
     console.log('local', localStorage.getItem('token'))
     const [login, setLogin] = useState();
     const [pass, setPass] = useState();

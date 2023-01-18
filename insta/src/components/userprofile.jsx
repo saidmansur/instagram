@@ -15,6 +15,7 @@ const Userprofile = () => {
 	if (localStorage.getItem('token') == null) {
 		history('/');
 	}
+	document.body.style.backgroundColor='white';
 	var moment = require('moment');
 	require("moment/min/locales.min");
 	moment.locale('ru');
