@@ -53,9 +53,7 @@ const Search = () => {
         <div class="form-group col-12">
           <input class="input fixed-top ml-5" required type="text" placeholder="Поиск" onChange={(e) => { setLogin(e.target.value) }} onInput={search} />
         </div>
-        <div class="row mt-5" id="main" style={{
-          marginTop: '40px'
-        }}>
+        <div class="row mt-5" id="main">
           {items ?
             <>
               {items.map((i) =>

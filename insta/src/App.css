@@ -617,12 +617,6 @@ body{
   80% { content: "⠇"; }
   90% { content: "⠏"; }
 }
-/* .btn{
-  float: left;
-  position:absolute;
-  margin-top: 120px;
-
-} */
 .spinner1 {
   color: #7af224;
   display: flex;
