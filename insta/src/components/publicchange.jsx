@@ -14,6 +14,7 @@ const Publicchange = () => {
   const [photo, setPhoto] = useState();
   const [comment, setComment] = useState();
   const [location, setLocation] = useState();
+  const [items,setItems] = useState();
   const params = useParams();
   const post_id = params.id;
   const postData = async () => {
@@ -42,7 +43,6 @@ const Publicchange = () => {
       console.log(update);
       if (update.status == 200) {
         message.success('Публикация изменена!');
-        setPhoto(update.data.photo);
         // window.location.href = '/profile';
       } else {
         console.log("Error!");
@@ -81,6 +81,37 @@ const Publicchange = () => {
       console.log("posts", deletes.data.post_id)
     }
   }
+  const posts = async () => {
+		const params = {
+			'userid': parseInt(localStorage.getItem('token')),
+
+		}
+		const post = await axios({
+			method: "get",
+			params: params,
+			url: api + "/enter/login",
+			config: {
+				headers: {
+					"Content-type": "multipart/form-data"
+				}
+			}
+		}
+		);
+		if (post != null) {
+			console.log('posts', post)
+			if (post.data.status == 200) {
+				console.log('posts', post.data.logins);
+				setItems(post.data.logins);
+				setPhoto(post.data.logins.photo);
+			} else {
+				setItems(null);
+			}
+			console.log("posts", post.data.logins)
+		}
+	}
+  useEffect(() => {
+		posts();
+	}, [])
   return (
     <div>
       <Dnavbar />
@@ -110,6 +141,8 @@ const Publicchange = () => {
                 </div>
                 <div class="modal-body">
                   Вы действительно хотите удалить данную публикацию?
+                  <img src={api + "/uploads/" + photo} width='100px'/>
+                  <p>{post_id}</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
