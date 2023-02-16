@@ -29,7 +29,7 @@ const Search = () => {
         }
       }
     }
-    );
+    ); console.log('sea',param);
     if (user != null) {
       if (user.data.status == 200) {
         setItems(user.data.logins);

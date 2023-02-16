@@ -51,37 +51,8 @@ const Publicchange = () => {
       console.log("params", update.data.id)
     }
   }
-  const pdelete = async (post_id) => {
-    const param = {
-      'post_id': parseInt(post_id),
-      'image': photo,
-
-    }
-    const deletes = await axios({
-      method: "delete",
-      params: param,
-      url: api + "/login/post",
-      config: {
-        headers: {
-          "Content-type": "multipart/form-data"
-        }
-      }
-    }
-    );
-    if (deletes != null) {
-      console.log(deletes);
-      if (deletes.status == 200) {
-        message.success('Пост удален!');
-        history('/profile');
-        console.log('delete', param);
-      } else {
-        message.error('Неудалось удулить пост');
-
-      }
-      console.log("posts", deletes.data.post_id)
-    }
-  }
-  const posts = async () => {
+  
+  const pdelete = async () => {
 		const params = {
 			'userid': parseInt(localStorage.getItem('token')),
 
@@ -102,16 +73,42 @@ const Publicchange = () => {
 			if (post.data.status == 200) {
 				console.log('posts', post.data.logins);
 				setItems(post.data.logins);
-				setPhoto(post.data.logins.photo);
+				setPhoto(post.data.logins[0].photo);
+        console.log(post.data.logins[0].photo);
+        const param = {
+          'post_id': parseInt(post_id),
+          'photo': photo,
+    
+        }
+        const deletes = await axios({
+          method: "delete",
+          params: param,
+          url: api + "/login/post",
+          config: {
+            headers: {
+              "Content-type": "multipart/form-data"
+            }
+          }
+        }
+        );
+        if (deletes != null) {
+          console.log(deletes);
+          if (deletes.status == 200) {
+            message.success('Пост удален!');
+            history('/profile');
+            console.log('delete', param);
+          } else {
+            message.error('Неудалось удулить пост');
+    
+          }
+          console.log("posts", deletes.data.post_id)
+        }
 			} else {
 				setItems(null);
 			}
 			console.log("posts", post.data.logins)
 		}
 	}
-  useEffect(() => {
-		posts();
-	}, [])
   return (
     <div>
       <Dnavbar />
@@ -146,7 +143,7 @@ const Publicchange = () => {
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => pdelete(post_id, photo)}>Удалить</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => pdelete(post_id,photo)}>Удалить</button>
                 </div>
               </div>
             </div>
